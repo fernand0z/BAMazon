@@ -1,0 +1,24 @@
+{
+  "name": "BAMazon",
+  "version": "1.0.0",
+  "description": "An Amazon-like storefront CLI app using MySQL",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernand0z/BAMazon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fernand0z/BAMazon/issues"
+  },
+  "homepage": "https://github.com/fernand0z/BAMazon#readme",
+  "dependencies": {
+    "inquirer": "^5.2.0",
+    "mysql": "^2.15.0"
+  }
+}
