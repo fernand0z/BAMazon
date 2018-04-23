@@ -27,3 +27,17 @@ or you may manually install each of the packages
 `npm i console.table`
 
 `npm i chalk`
+
+### Application Demo
+
+Below is a demo of the application's functionality, including screenshots of various outcomes from user input.  
+
+The user must first download/clone the repo *and* install the npm dependencies.  The user must also have access to the bamazon database and it's products table in MySQL.  For testing, you may open the `bamazon.sql` script file in MySQL.  Executing the script file will create the database for interaction with the application.  Please note: the `bamazonCustomer.js` file specifies a username of 'root' and password of 'root'.  Update these values in the .js file if necessary.
+
+In your CLI, run following code to begin: 
+
+`node bamazonCustomer.js`
+
+A table of available merchandise will be displayed with the following columns `ID`, `PRODUCT_NAME`, `DEPARTMENT`, and `PRICE_$`.  The customer will be prompted to select an item to purchase by entering its `ID`.
+
+![Customer Main](http://www.gdurl.com/TRY2)
