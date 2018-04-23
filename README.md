@@ -17,8 +17,13 @@ This application interacts with a MySQL database to display available merchandis
 
 To run the modules in your CLI terminal application, use the Node Package Manager to install the npm dependences.  Prior to running the application's .js file, enter the following into your CLI terminal program:
 `npm install`
+
 or you may manually install each of the packages
-`npm i mysql`
+
+`npm i mysql` <br>
+
 `npm i inquierer`
+
 `npm i console.table`
+
 `npm i chalk`
