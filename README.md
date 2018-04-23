@@ -39,5 +39,11 @@ In your CLI, run following code to begin:
 `node bamazonCustomer.js`
 
 A table of available merchandise will be displayed with the following columns `ID`, `PRODUCT_NAME`, `DEPARTMENT`, and `PRICE_$`.  The customer will be prompted to select an item to purchase by entering its `ID`.
+- Customer Module - Initial View Screenshot
+![Customer Main Screen](https://gdurl.com/UZK1)
 
-![Customer Main](http://www.gdurl.com/TRY2)
+- Customer Module - Successful Order Screenshot
+![Customer Successful Order](http://www.gdurl.com/TRY2)
+
+- Customer Module - Insufficient Inventory Screenshot
+![Customer Error Order](https://gdurl.com/jexN)
