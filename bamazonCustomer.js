@@ -1,12 +1,13 @@
-//BAMazon Storefront
+//BAMazon Storefront - Customer Modules
 //This script file handles the CUSTOMER interface
 //Created by: Fernando Zacarias
 
-//Declare npm packages
+//Declare npm dependencies 
 const mysql = require("mysql");
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 const chalk = require("chalk");
+const colors = require('colors');
 //Database connection credentials
 const connection = mysql.createConnection({
     host: "localhost",
@@ -29,16 +30,17 @@ function queryInventory() {
     })
 
 };
-//Display welcome and marketplace items to customer
+//----------Function to display the inventor----------
 function displayInventory(data) {
-    console.log(chalk.magenta.bold("=================================== WELCOME TO BAMAZON! ==================================="));
+    console.log(colors.america("==========================================================================================="));
+    console.log(colors.magenta.bold("\n---------------------------------- WELCOME TO BAMAZON! ----------------------------------"));
     console.log(chalk.blue.bold("\nHere are items currently available for purchase:\n"));
     console.table(data);
-    console.log(chalk.magenta.bold("==========================================================================================="));
+    console.log(colors.america("==========================================================================================="));
     //Call function to prompt customer for purchase ID
     promptCustomer();
 };
-
+//---------Function to prompt customer for item selection----------
 function promptCustomer() {
     //Prompt for item ID
     inquirer.prompt([
@@ -56,9 +58,7 @@ function promptCustomer() {
         //Variables to hold user input
         var purchaseID = answers.idPrompt;
         var purchaseQty = answers.qtyPrompt;
-        //!!!REMOVE AFTER DEBUGGGING
-        //console.log("Purchase ID: " + purchaseID);
-        //console.log("Purchase Quantity: " + purchaseQty);
+        
         //If statement for input validation against available items
         connection.query("SELECT ID, PRODUCT_NAME, DEPARTMENT, PRICE_$ FROM products WHERE ?",
             {
@@ -67,7 +67,7 @@ function promptCustomer() {
             function (err, res) {
                 if (err) throw err;
                 if (res == "") {
-                    console.log(chalk.cyan.bold("==================================================================="));
+                    console.log(chalk.red.bold("==================================================================="));
                     console.log(chalk.bgRed("Please enter a valid Product ID from the items listed above."));
                     promptCustomer();
                 }
@@ -92,7 +92,7 @@ function promptCustomer() {
                         }
                         else {
                             console.log(chalk.green("Sufficient items in stock to complete your order"));
-                            console.log(chalk.cyan.bold("==================================================================="));
+                            console.log(colors.rainbow("==================================================================="));
                             //variable to hold updated quantity
                             var newQty = res[0].STOCK_QTY -= purchaseQty;
                             //!!REMOVE AFTER DEBUGGING
@@ -126,7 +126,8 @@ function promptCustomer() {
                     var total = res[0].PRICE_$ * purchaseQty;
                     console.log(chalk.magenta.bold("\nYour order total is: "));
                     console.log(chalk.green.bold("$" + total));
-                    console.log(chalk.cyan.bold("\nThank you for using Bamazon!"));
+                    console.log(chalk.cyan.bold("\nThank you for using BAMazon!"));
+                    console.log(colors.rainbow("==================================================================="));
                 //Terminate database connection
                 connection.end();
                 }
@@ -134,5 +135,5 @@ function promptCustomer() {
         }
     });
 };
-
+//Initial function call
 queryInventory();
