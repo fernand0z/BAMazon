@@ -5,7 +5,6 @@
 //Declare npm packages
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const cliTable = require("cli-table");
 const cTable = require("console.table");
 const chalk = require("chalk");
 //Database connection credentials
