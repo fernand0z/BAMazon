@@ -42,8 +42,16 @@ A table of available merchandise will be displayed with the following columns `I
 - Customer Module - Initial View Screenshot
 ![Customer Main Screen](https://gdurl.com/UZK1)
 
+
+Once an item ID and order quantity are submitted, the application will query MySQL database for the item's inventory quantity.  A conditional statement then confirms that sufficient inventory is available to fulfill the order.  
+
+A confirmation of the order quantity and the item's relevant information is redisplayed to the customer.  The order quantity is then multipled by the item's `PRICE_$`, and the calculated order total is shown to the user.  
+
+The `STOCK_QTY` field of the databse for the ordered item is also depleted by the order quantity.  
+
 - Customer Module - Successful Order Screenshot
 ![Customer Successful Order](http://www.gdurl.com/TRY2)
 
+In the case that the order quantity exceeds the `STOCK_QTY` value, the customer is displayed an error message and prompted to revise the order quantity to a number equal to or less than the current `STOCK_QTY` and the prompt will then re-validate the quantity against the database.  
 - Customer Module - Insufficient Inventory Screenshot
 ![Customer Error Order](https://gdurl.com/jexN)
